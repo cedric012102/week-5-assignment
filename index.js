@@ -47,7 +47,7 @@ class Fighter {
           this.deleteTribe();
           break;
           case '4':
-          this.displayTribe();
+          this.displayTribes();
           break;
           default:
           selection = 0;
@@ -91,16 +91,14 @@ class Fighter {
       this.tribes.push(new Tribe(name));
     }
   
-    viewTribe() {
+      viewTribe() {
       let index = prompt('Enter the index of the tribe you wish to view:');
       if (index > -1 && index < this.tribes.length) {
         this.selectedTribe = this.tribes[index];
         let description = 'Tribe Name: ' + this.selectedTribe.name + '\n';
-        
         for (let i = 0; i < this.selectedTribe.fighters.length; i ++) {
-          description += i + ') ' + this.selectedTribe.fighters[i].name + ' - ' + this.selectedTribe.fighters[i].position + '\n';
+          description += i + ') ' + this.selectedTribe.fighters[i].name + ' - ' + this.selectedTribe.fighters[i].superPower + '\n';
         }
-  
         let selection = this.showTribeMainMenuOptions(description);
         switch (selection) {
           case '1':
